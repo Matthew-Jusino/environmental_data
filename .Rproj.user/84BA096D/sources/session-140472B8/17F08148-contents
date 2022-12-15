@@ -1,0 +1,16 @@
+data("iris")
+
+fit_species =
+  lm(
+    Sepal.Length ~ Species,
+    data = iris)
+summary(fit_species)
+
+plot(
+  Petal.Width ~ Petal.Length,
+  data = iris,
+  xlab = "Petal Length (cm)",
+  ylab = "Petal Width (cm)")
+
+boxplot(Sepal.Length ~ Species, data = iris, ylab = "Sepal Length (cm)", col = "slateblue3", main = "Sepal Length by Iris Species")
+

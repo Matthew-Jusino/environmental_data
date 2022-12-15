@@ -1,0 +1,92 @@
+require(here)
+dat_birds <- read.csv(here("data", "bird.sub.csv"))
+dat_habs <- read.csv(here("data", "hab.sub.csv"))
+birdhab = merge(
+  dat_birds,
+  dat_habs,
+  by = c("basin", "sub"))
+dim(birdhab)
+
+plot(birdhab$ls, birdhab$BRCR,
+     xlab = "late-successional forest extent",
+     ylab = 'Brown Creeper abundance',
+     pch = 20)
+abline(fit_1)
+
+fit_1 = lm(BRCR ~ ls, data = birdhab)
+
+
+linear = function(x, y_int, slope)
+{
+  return(y_int + slope*x)
+}
+linear(x=1,y_int=1,slope=1)
+linear(x=3:5,y_int=1,slope=1)
+linear(x=3:5,y_int=-1,slope=1)
+linear(x=3:5,y_int=-1,slope=0.01)
+
+linear_simulator = function(x, y_int, slope, st_dev)
+{
+ return(rnorm(n, mean = (y_int + slope*x), sd = st_dev ))
+}
+
+n=30
+par(mfrow=c(2,2),mar=c(1,1,1,1))
+for (i in 1:4)
+{
+  x = runif(n=n)
+  plot(
+    x,
+    linear_simulator(x, y_int = 10, slope = -6.5, st_dev = 1.1),
+    main = "", xlab = "x", ylab = "y",
+    pch = 16, col = rgb(0, 0.2, 0, 0.2),
+    axes = FALSE)
+  box()
+}
+
+fit_1_coefs = coefficients(fit_1)
+str(fit_1_coefs)
+
+fit_1_summary = summary(fit_1)
+str(fit_1_summary)
+fit_1_summary$sigma
+
+sd_obs = fit_1_summary$sigma
+int_obs = fit_1_coefs[1]
+slope_obs = fit_1_coefs[2]
+
+
+plot(
+  x = birdhab$ls, 
+  y = linear_simulator(
+    x = birdhab$ls,
+    y_int = int_obs,
+    slope = slope_obs,
+    st_dev = sd_obs
+  ),
+  main = "Simulated Data",
+  xlab = "late-successional forest",
+  ylab = "Brown Creeper Abundance")
+
+plot(
+  birdhab$ls, birdhab$BRCR, 
+  xlab = "late-successional forest extent",
+  ylab = "Brown Creeper abundance",
+  pch = 19)
+
+points(
+  x = birdhab$ls, 
+  y = linear_simulator(
+    x = birdhab$ls,
+    y_int = int_obs,
+    slope = slope_obs,
+    st_dev = sd_obs
+  ),
+  col = adjustcolor("red", alpha = 0.3),
+  pch = 16)
+
+legend(
+  "topleft",
+  legend = c("data", "simulation"),
+  pch = 16,
+  col = c(1, adjustcolor("red", alpha = 0.3)))

@@ -1,0 +1,31 @@
+---
+title: "R Markdown Documents - Part 1"
+subtitle: "Analysis of Environmental Data"
+author: "Matthew Jusino"
+date: "2022-09-23"
+output: 
+  html_document:
+    template: NULL
+    toc: true
+    toc_float: true
+---
+
+## Introduction
+
+**Matthew Jusino**
+*GIST Master's Program*
+
+## Class List
+
+ 1. Basic R
+ 2. R Markdown
+ 3. ANOVA Tests
+
+## Course List
+
+ - Phytoremediation
+ - Wetlands Site Assessment
+ - Natural Hazards & Risk Assessment
+ - Wildlife Habitat Management
+
+

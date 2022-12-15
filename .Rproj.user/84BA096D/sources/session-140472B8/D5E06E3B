@@ -1,0 +1,28 @@
+{
+    "id": "D5E06E3B",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1670956734724.0,
+    "source_on_save": false,
+    "relative_order": 13,
+    "properties": {
+        "id": "36120b88ca114f58b406c855cd18de6c",
+        "name": "fit_1_summary",
+        "title": "fit_1_summary",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1792512046392,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1670956734724,
+    "read_only": false,
+    "read_only_alternatives": []
+}

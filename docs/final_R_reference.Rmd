@@ -1,0 +1,30 @@
+---
+title: "final_r_reference"
+author: "Matthew Jusino"
+date: "2022-12-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# R Reference Guide {.tabset .tabset-pills}
+
+
+## Loading Data and Packages
+
+You can use the require or library fucntions to retrieve packages you want to work with.
+
+```{r}
+require(here)
+require(palmerpenguins)
+```
+
+Using the 'here' and 'read.csv' functions, we can read the data contained in a csv into a new data frame
+
+```{r}
+ginkgo = read.csv(here("data", "ginkgo_data_2021.csv"))
+```
+
+
+## Data Structures

@@ -1,0 +1,28 @@
+{
+    "id": "64634D84",
+    "path": "C:/environmental_data/assignments/labs/Lab 8 Walkthrough.R",
+    "project_path": "assignments/labs/Lab 8 Walkthrough.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1667839578715.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "tempName": "Untitled2",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "58,0",
+        "scrollLine": "42",
+        "ignored_words": "Habs\n"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1668025048,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1668025048175,
+    "read_only": false,
+    "read_only_alternatives": []
+}

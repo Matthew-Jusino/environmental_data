@@ -1,0 +1,8 @@
+require(here)
+ginkgo <- read.csv(here("data", "ginkgo_data_2022.csv"))
+head(ginkgo)
+
+seedysites = 
+  
+boxplot(data = ginkgo, max_depth ~ seeds_present, main = "Conditional Boxplot of Max Depth vs Seed Presence", xlab = "Seed Presence/Absence", ylab = "Max Depth (mm)", col = "darkgoldenrod2")
+par(mfrow = c(1,1))
