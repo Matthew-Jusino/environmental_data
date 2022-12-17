@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Welcome to Matthew's Class Homepage
 
-Link to the r reference guide:
+Link to the R reference guide:
 
 
 [Final Project: R Reference Guide](final_R_reference.html)

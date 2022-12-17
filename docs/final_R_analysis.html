@@ -427,17 +427,50 @@ based on species and/or sex.</h3>
 <p>The sublineatus species tend to be slightly lighter, based on the
 conditional boxplots. There does not appear to be significant difference
 between sexes.</p>
+<pre><code>## 
+## Call:
+## lm(formula = body_length ~ body_mass, data = del)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -48.888  -5.398   0.104   4.859 138.663 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 76.12466    0.91581   83.12   &lt;2e-16 ***
+## body_mass    0.87550    0.01969   44.46   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 11.67 on 1583 degrees of freedom
+## Multiple R-squared:  0.5553, Adjusted R-squared:  0.5551 
+## F-statistic:  1977 on 1 and 1583 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  residuals(fit1)
+## W = 0.73462, p-value &lt; 2.2e-16</code></pre>
 <pre><code>##               Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## sex            1   3062  3061.7   13.94 0.000195 ***
 ## Residuals   1578 346507   219.6                     
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 5 observations deleted due to missingness</code></pre>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  residuals(fit2)
+## W = 0.99563, p-value = 0.0001541</code></pre>
 <pre><code>##               Df Sum Sq Mean Sq F value Pr(&gt;F)    
 ## binomial       1  21290   21290   102.1 &lt;2e-16 ***
 ## Residuals   1583 330164     209                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  residuals(fit3)
+## W = 0.99535, p-value = 8.103e-05</code></pre>
 <pre><code>##               Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## sex            1   3062    3062   14.96 0.000114 ***
 ## binomial       1  23727   23727  115.92  &lt; 2e-16 ***
@@ -445,6 +478,11 @@ between sexes.</p>
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 5 observations deleted due to missingness</code></pre>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  residuals(fit4)
+## W = 0.99525, p-value = 6.805e-05</code></pre>
 <pre><code>##                Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## sex             1   3062    3062  14.949 0.000115 ***
 ## binomial        1  23727   23727 115.850  &lt; 2e-16 ***
@@ -453,6 +491,345 @@ between sexes.</p>
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 5 observations deleted due to missingness</code></pre>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  residuals(fit5)
+## W = 0.99526, p-value = 6.816e-05</code></pre>
+</div>
+<div id="q5-2-pts.-what-do-you-conclude-about-residual-normality-based-on-the-numerical-and-graphical-diagnostics" class="section level3">
+<h3>Q5 (2 pts.): What do you conclude about residual normality based on
+the numerical and graphical diagnostics?</h3>
+<p>Based on the numerical and graphical diagnostics, the residuals do
+not appear to meet the assumption of normality for any of the models</p>
+</div>
+<div id="q6-1-pt.-are-violations-of-the-normality-assumption-equally-severe-for-all-the-models" class="section level3">
+<h3>Q6 (1 pt.): Are violations of the normality assumption equally
+severe for all the models?</h3>
+<p>The violations are severe for all of the models. The closest to the
+threshold p-value of 0.05 is fit2 with a p-value of 0.0001541.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Estimate</th>
+<th align="right">Std. Error</th>
+<th align="right">t value</th>
+<th align="right">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">76.1246565</td>
+<td align="right">0.9158120</td>
+<td align="right">83.12258</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">body_mass</td>
+<td align="right">0.8754988</td>
+<td align="right">0.0196905</td>
+<td align="right">44.46298</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="q7-2-pts.-what-is-the-magnitude-of-the-masslength-relationship" class="section level3">
+<h3>Q7 (2 pts.): What is the magnitude of the mass/length
+relationship?</h3>
+<p>The magnitude of the mass/length relationship is 0.875</p>
+</div>
+<div id="q8-2-pts.-what-is-the-expected-body-length-of-an-animal-that-weighs-100g" class="section level3">
+<h3>Q8 (2 pts.): What is the expected body length of an animal that
+weighs 100g?</h3>
+<p>The expected body length for an animal weighing 100g is 114mm.</p>
+</div>
+<div id="q9-2-pts.-what-is-the-expected-body-length-of-an-animal-that-weighs-0g" class="section level3">
+<h3>Q9 (2 pts.): What is the expected body length of an animal that
+weighs 0g?</h3>
+<p>The expected body length for an animal weighing 0g is 0mm</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">42.711465</td>
+</tr>
+<tr class="even">
+<td align="left">sexmale</td>
+<td align="right">2.784133</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">46.752427</td>
+</tr>
+<tr class="even">
+<td align="left">binomialDelomys sublineatus</td>
+<td align="right">-7.683058</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">45.070355</td>
+</tr>
+<tr class="even">
+<td align="left">sexmale</td>
+<td align="right">3.795395</td>
+</tr>
+<tr class="odd">
+<td align="left">binomialDelomys sublineatus</td>
+<td align="right">-8.193492</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">45.0554562</td>
+</tr>
+<tr class="even">
+<td align="left">sexmale</td>
+<td align="right">3.8280908</td>
+</tr>
+<tr class="odd">
+<td align="left">binomialDelomys sublineatus</td>
+<td align="right">-8.1417394</td>
+</tr>
+<tr class="even">
+<td align="left">sexmale:binomialDelomys sublineatus</td>
+<td align="right">-0.0950187</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="q10-1-pt.-what-is-the-base-level-for-sex" class="section level3">
+<h3>Q10 (1 pt.): What is the base level for sex?</h3>
+<p>The base level for sex is female</p>
+</div>
+<div id="q11-1-pt.-what-is-the-base-level-for-binomial" class="section level3">
+<h3>Q11 (1 pt.): What is the base level for binomial?</h3>
+<p>The base level for binomial is D.dorsalis</p>
+</div>
+<div id="q12-1-pt.-which-sex-is-heavier-how-do-you-know" class="section level3">
+<h3>Q12 (1 pt.): Which sex is heavier? How do you know?</h3>
+<p>Males are heavier, as their coefficient is positive, meaning their
+mass value is greater than the base case (female).</p>
+</div>
+<div id="q13-1-pt.-which-species-is-heavier-how-do-you-know" class="section level3">
+<h3>Q13 (1 pt.): Which species is heavier? How do you know?</h3>
+<p>D.dorsalis is heavier, as the D.sublineatus coefficient is negative,
+meaning their mass value is less than the base case (D.Dorsalis).</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sex</td>
+<td align="right">1</td>
+<td align="right">3061.678</td>
+<td align="right">3061.6779</td>
+<td align="right">13.94294</td>
+<td align="right">0.0001951</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">1578</td>
+<td align="right">346507.131</td>
+<td align="right">219.5863</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">binomial</td>
+<td align="right">1</td>
+<td align="right">21289.68</td>
+<td align="right">21289.6805</td>
+<td align="right">102.0751</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">1583</td>
+<td align="right">330164.45</td>
+<td align="right">208.5688</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sex</td>
+<td align="right">1</td>
+<td align="right">3061.678</td>
+<td align="right">3061.6779</td>
+<td align="right">14.95838</td>
+<td align="right">0.0001144</td>
+</tr>
+<tr class="even">
+<td align="left">binomial</td>
+<td align="right">1</td>
+<td align="right">23727.134</td>
+<td align="right">23727.1342</td>
+<td align="right">115.92320</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Residuals</td>
+<td align="right">1577</td>
+<td align="right">322779.997</td>
+<td align="right">204.6798</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sex</td>
+<td align="right">1</td>
+<td align="right">3.061678e+03</td>
+<td align="right">3.061678e+03</td>
+<td align="right">14.948932</td>
+<td align="right">0.0001150</td>
+</tr>
+<tr class="even">
+<td align="left">binomial</td>
+<td align="right">1</td>
+<td align="right">2.372713e+04</td>
+<td align="right">2.372713e+04</td>
+<td align="right">115.849977</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:binomial</td>
+<td align="right">1</td>
+<td align="right">7.913846e-01</td>
+<td align="right">7.913846e-01</td>
+<td align="right">0.003864</td>
+<td align="right">0.9504424</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">1576</td>
+<td align="right">3.227792e+05</td>
+<td align="right">2.048091e+02</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="q14-1-pt.-are-sex-and-species-significant-predictors-for-body-mass" class="section level3">
+<h3>Q14 (1 pt.): Are sex and species significant predictors for body
+mass?</h3>
+<p>Both are significant predictors for body mass</p>
+</div>
+<div id="q15-1-pt.-is-there-a-significant-interaction" class="section level3">
+<h3>Q15 (1 pt.): Is there a significant interaction?</h3>
+<p>There is not a significant interaction between the two, as the
+F-value is very small.</p>
+</div>
+<div id="q16-2-pts.-examine-the-p-values-for-the-main-effects-sex-and-species-in-all-four-of-the-anova-tables.-does-the-significance-level-of-either-main-effect-change-very-much-among-the-different-models" class="section level3">
+<h3>Q16 (2 pts.): Examine the p-values for the main effects (sex and
+species) in all four of the ANOVA tables. Does the significance level of
+either main effect change very much among the different models?</h3>
+<p>The significance level of either main effect does not change
+significantly among the different models. Only minor changes on the
+order of 0.00008</p>
+<pre><code>## [1] 12291.67</code></pre>
+<pre><code>## [1] 13006.8</code></pre>
+<pre><code>## [1] 12966.36</code></pre>
+<pre><code>## [1] 12896.73</code></pre>
+<pre><code>## [1] 12898.72</code></pre>
+</div>
+<div id="q17-1-pt.-which-two-models-have-the-lowest-aic" class="section level3">
+<h3>Q17 (1 pt.): Which two models have the lowest AIC?</h3>
+</div>
+<div id="q18-4-pts.-which-of-the-two-models-with-lowest-aic-scores-would-you-select" class="section level3">
+<h3>Q18 (4 pts.): Which of the two models with lowest AIC scores would
+you select?</h3>
+</div>
+<div id="explain-your-decision-based-on-model-fit-and-the-complexityunderstanding-tradeoff." class="section level3">
+<h3>Explain your decision based on model fit and the
+complexity/understanding tradeoff.</h3>
 </div>
 
 
