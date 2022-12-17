@@ -124,14 +124,15 @@ There is not a significant interaction between the two, as the F-value is very s
 The significance level of either main effect does not change significantly among the different models. Only minor changes on the order of 0.00008
 
 ```{r}
-AIC(fit1)
 AIC(fit2)
 AIC(fit3)
 AIC(fit4)
 AIC(fit5)
 ```
 ### Q17 (1 pt.): Which two models have the lowest AIC?
-
+fit4 and fit5 have the lowest AIC values
 
 ### Q18 (4 pts.): Which of the two models with lowest AIC scores would you select?
 ### Explain your decision based on model fit and the complexity/understanding tradeoff.
+
+I would select fit5. Even though it has a higher AIC than fit4, I believe that it more accurately portrays the relationships between the variables since it tests for interactions between the factors, rather than comparing each individually.
