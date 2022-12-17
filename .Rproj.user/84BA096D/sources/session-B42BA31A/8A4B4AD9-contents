@@ -1,0 +1,3 @@
+require(here)
+ginkgo = read.csv(here("data", "ginkgo_data_2021.csv"))
+ginkgo$

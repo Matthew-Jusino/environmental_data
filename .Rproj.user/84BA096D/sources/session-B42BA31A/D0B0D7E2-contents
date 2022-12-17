@@ -1,0 +1,77 @@
+---
+title: "Jusino_Lab_11"
+author: "Matthew Jusino"
+date: "2022-12-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+alpha = 0.05
+
+# Start with a small number
+n_sims = 10
+p_vals = numeric(n_sims) 
+
+# What was the observed standard deviation?
+sd_obs
+
+# specify the number of different standard deviation values to simulate:
+# Start with a small number
+n_sds = 20
+pop_sds = seq(from = 0.05, to = , length.out = n_sds)
+
+# The maximum x value in the simulation.
+# Use the maximum observed x-value in the data
+max_x = max(birdhab$ls)
+
+
+pop_sd_powers = numeric(length(pop_sds))
+
+sample_sizes = seq(5, 100)
+
+sim_output_3 = matrix(nrow = length(pop_sds), ncol = length(sample_sizes))
+
+for(k in 1:length(pop_sds))
+{
+  pop_sd_k = pop_sds[k]
+  
+  for(j in 1:length(sample_sizes))
+  {
+    x_vals = seq(0, max_x, length.out = sample_sizes[j])
+    
+    for(i in 1:n_sims)
+    {
+      fit_sim = linear_sim_fit(
+        x = x_vals,
+        y_int = int_obs,
+        slope = pop_sd_k,
+        st_dev = sd_obs
+      )
+      p_vals[i] = summary(fit_sim)$coefficients[2, 'Pr(>|t|)']
+    }
+    
+    sim_output_3[k, j] = sum(p_vals < alpha) / n_sims
+  }
+  print(paste0("Testing standard deviation ", k, " of ", n_sds))
+}
+
+image(sim_output_3)
+
+sim_3_dat = 
+  list(
+    power       = sim_output_3,
+    sample_size = sample_sizes,
+    pop_sd      = pop_sds)
+
+
+# You should save your simulation results so you don't have to run it every time.
+save(
+  sim_3_dat, 
+  file = here::here("data", "lab_ll_sim_output_dispersion_n_1000.RData"))
+
+```
