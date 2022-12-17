@@ -1,0 +1,65 @@
+---
+title: "Data Analysis Final"
+author: "Matthew Jusino"
+date: "2022-12-17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r}
+require(here)
+del = read.csv(here("data", "delomys.csv"))
+```
+
+```{r}
+summary(del$body_mass)
+summary(del$body_length)
+shapiro.test(del$body_mass)
+shapiro.test(del$body_length)
+```
+
+```{r}
+plot(x = del$body_length, y = del$body_mass)
+hist(del$body_length)
+hist(del$body_mass)
+boxplot(body_mass ~ binomial, data = del)
+boxplot(body_mass ~ sex, data = del)
+boxplot(body_mass ~ sex:binomial, data = del, las = 2, cex.axis = 0.3, xlab = '')
+```
+
+### Q1 (2 pts.): Qualitatively describe the relationship between body mass and length.
+### Does the relationship seem linear, curved, nonexistent?
+
+There seems to be a linear relationship between body mass and length.
+
+### Q2 (2 pts.): Qualitatively describe the shapes of the histograms.
+### Do the data appear normally-distributed? Explain why or why not.
+### Explain why we care (or not) whether the data are normally distributed.
+
+Neither of the histograms appear to be normally distributed. They visibly lack the distinct bell shape of a normal distribution, though body mass is closer. We don't care because the normality assumption for ANOVA applies only to the residuals of the data.
+
+### Q3 (2 pts.): Using both the histograms and normality tests, do you think the (unconditioned) body masses and body length are normally-distributed?
+
+The Shapiro Tests confirm that neither are normally distributed.
+
+### Q4 (2 pts.): Examine the three conditional boxplots.
+### Describe any graphical evidence you see for body mass differences based on species and/or sex.
+
+The sublineatus species tend to be slightly lighter, based on the conditional boxplots. There does not appear to be significant difference between sexes.
+
+```{r}
+fit1 = lm(body_length ~ body_mass, data = del)
+summary(fit1)
+fit2 = aov(body_mass ~ sex, data = del)
+summary(fit2)
+fit3 = aov(body_mass ~ binomial, data = del)
+summary(fit3)
+fit4 = aov(body_mass ~ sex + binomial, data = del)
+summary(fit4)
+fit5 = aov(body_mass ~ sex * binomial, data = del)
+summary(fit5)
+```
